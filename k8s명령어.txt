@@ -51,9 +51,14 @@ http://34.27.221.173:30090/api/bookmarks
 LoadBalancer 서비스 요청하기
 http://34.28.247.244:8080/api/bookmarks
 
-Nextjs
+NodePort
+Nextjs 
 http://34.70.247.76:30080
 http://34.42.73.32:30080
+
+LoadBalancer
+Nextjs
+http://34.42.169.112:3000
 
 
 postgresql
