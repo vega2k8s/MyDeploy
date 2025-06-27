@@ -42,6 +42,12 @@ kubectl describe nodes | grep -A 10 "Allocated resources"
 kubectl top nodes
 kubectl top pods
 
-postgresql
+NodePort 서비스 요청하기
+34.70.247.76
+http://34.70.247.76:30090/api/bookmarks
+http://34.42.73.32:30090/api/bookmarks
+http://34.27.221.173:30090/api/bookmarks
 
+
+postgresql
 \c appdb postgres
