@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: bookmarker-api-svc
 spec:
-  # type: LoadBalancer
-  type: NodePort
+  type: LoadBalancer
+  # type: NodePort
   selector:
     app: bookmarker-api-pod
   ports:

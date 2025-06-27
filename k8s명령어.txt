@@ -43,10 +43,17 @@ kubectl top nodes
 kubectl top pods
 
 NodePort 서비스 요청하기
-34.70.247.76
+SpringBoot
 http://34.70.247.76:30090/api/bookmarks
 http://34.42.73.32:30090/api/bookmarks
 http://34.27.221.173:30090/api/bookmarks
+
+LoadBalancer 서비스 요청하기
+http://34.28.247.244:8080/api/bookmarks
+
+Nextjs
+http://34.70.247.76:30080
+http://34.42.73.32:30080
 
 
 postgresql
