@@ -1,4 +1,4 @@
-ssh -i ./keys/bootKey.pem ec2-user@3.36.58.17
+ssh -i ./keys/bootKey.pem ec2-user@3.38.180.223
 
 ls -l /home/r/docker-volume/mariadb/conf.d
 cat /home/r/docker-volume/mariadb/conf.d/my.cnf
@@ -121,3 +121,31 @@ EOF
 # ip 확인하기
 curl ifconfig.io
 
+python image run
+docker run -p 7860:7860 -e OPENAI_API_KEY=your-key vega2k8s/pdf-rag-app:0.2
+
+http://3.38.180.223:7860
+
+#docker-compose.yml
+
+cat <<EOF| sudo tee /work/langchain/docker-compose.yml
+services:
+  pdf-rag-app:
+    image: vega2k8s/pdf-rag-app:0.2
+    ports:
+      - "7860:7860"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      # PDF 업로드 파일을 호스트에 저장
+      - ./uploads:/app/uploads
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+EOF      
