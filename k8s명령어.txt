@@ -61,5 +61,13 @@ Nextjs
 http://34.42.169.112:3000
 
 
-postgresql
-\c appdb postgres
+kubectl create secret generic pdf-rag-secrets \
+  --from-literal=OPENAI_API_KEY="$(gcloud secrets versions access latest --secret=OPENAI_API_KEYS)"
+
+kubectl apply -f ./k8s_python/1-config.yml
+kubectl apply -f ./k8s_python/2-deployment.yml
+kubectl apply -f ./k8s_python/3-service.yml
+
+kubectl get po,deploy,service
+
+kubectl logs pod/
