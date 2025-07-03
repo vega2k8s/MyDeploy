@@ -68,6 +68,14 @@ kubectl apply -f ./k8s_python/1-config.yml
 kubectl apply -f ./k8s_python/2-deployment.yml
 kubectl apply -f ./k8s_python/3-service.yml
 
+kubectl get node
+
+kubectl get secret
+
+kubectl get cm
+
 kubectl get po,deploy,service
 
-kubectl logs pod/
+kubectl logs pod/pdf-rag-deployment-b79c945bb-6dxgx
+
+http://34.74.76.123:7860
